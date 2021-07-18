@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  ontologyretriever:
+    image: sameeracodes/ontology-retriever:latest
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017"
+    volumes:
+      - db-data:/data/db
+volumes:
+  db-data:
+    driver: local
